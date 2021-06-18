@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<head>
+  <title>Pizzeria RegisterUser</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+  <div class="col-sm-offset-5 col-sm-10">
+    <h3>Registration Form</h3></div>
+  <form class="form-horizontal" #SignupForm="ngForm" (ngSubmit)="SignUp(SignupForm.value)">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Full Name*</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" name="name" placeholder="Last name, First name Ex: Smith, John" ngModel>
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email" aria-required="true">Email Id*</label>
+      <div class="col-sm-7">
+        <input type="email" class="form-control" id="email" placeholder="user@domain.com" name="email" ngModel>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password*</label>
+      <div class="col-sm-7">          
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" ngModel>
+      </div>
+      <div class="col-sm-offset-2 col-sm-10"><mark>Must have atleast one uppercase letter and digit</mark></div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Confirm Password*</label>
+      <div class="col-sm-7">          
+        <input type="password" class="form-control" id="rpwd" placeholder="Re-type password" name="rpwd" ngModel>
+      </div>
+    </div>
+    <div class="form-group" style="width: 900px">
+      <label class="control-label col-sm-2">Gender</label>
+      <label class="radio-inline">
+        <input type="radio" ngModel name="optradio" value="Male">Male
+      </label>
+      <label class="radio-inline">
+        <input type="radio" ngModel name="optradio" value="Female">Female
+      </label>
+    </div>
+  
+    <div class="form-group">
+      <label class="control-label col-sm-2">Mobile Number</label>
+      <div class="col-sm-7">          
+        <input type="number" class="form-control" placeholder="Mobile Number" name="mob" ngModel>
+      </div>
+    </div>
+    <div class="container">        
+        <div class="col-sm-offset-4 col-sm-10">
+            <label>Already user?<a  routerLink="../login" routerLinkActive="active" name="login"> Login Here</a></label>
+          </div>
+        </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-5 col-sm-10">
+        <button type="submit" class="btn btn-default btn-success">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+ 
+</body>
+<!-- </html> -->

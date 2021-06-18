@@ -1,0 +1,53 @@
+<div style="margin-left: 60px; margin-top: 60px;">
+    <h3 style="font-weight: bold; margin-left: 50px;">YOUR SHOPPING BAG</h3><br><br>
+    <h6 *ngIf="cartdata.cart.length > 0" style="font-weight: bolder;">ITEM DETAILS</h6>
+    <h6 *ngIf="cartdata.cart.length === 0" style="font-weight: bolder;">Cart is Empty</h6>
+    <hr/>
+    <div class="row">
+        <div *ngFor="let c of cartdata.cart, let i = index" class="col-sm-8">
+            
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="{{c.image}}" style="height: 80px; width: 100px;">
+                </div>
+                <div class="col-sm-4" style="margin: 5px;width: 20px;">
+                    <p style="font-weight: bold;">{{c.name}}</p>
+                    <!-- <p>{{c.topping}}</p> -->
+                    <div *ngIf="c.name=='Custom Build Pizza'">
+                        <div *ngFor="let t of c.topping, let j = index">
+                            <div>
+                                {{t}}&nbsp;&nbsp;
+                                <label> : <input type="number" [(ngModel)]="cartdata.toppings[i][j]" style="width: 40px;"/></label>&nbsp;&nbsp;
+                                <button (click)="updateTopping(c,t,i,j)">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="c.name!='Custom Build Pizza'">
+                        <p>{{c.topping}}</p>
+                    </div>
+                    <a (click)="delete(c)" style="cursor:pointer"><u>Remove Item</u></a>
+                </div>
+                <div class="col-sm-2" style="margin: 5px;width: 20px;">
+                    <label>Qty: <input type="text" [(ngModel)]="cartdata.qty[i]" style="width: 40px;"/></label>
+                </div>
+            <div class="col-sm-2" style="margin: 5px;width: 20px;">
+                    <button (click)="update(c,i)">Update</button>
+                </div>
+                <div class="col-sm-1" style="margin: 5px;width: 40px;">
+                    <p>Rs.{{cartdata.price[i]}}</p>
+                    <!-- <p *ngIf="cost!=0">Rs.{{price}}</p> -->
+                </div>
+            </div>
+            <hr/>
+        </div>
+        <div *ngIf="cartdata.cart.length > 0" class="col-sm-8" style="align-content: right; float: right;" align="right">
+            <h3>Total Cost : {{cartdata.total}}</h3>
+        </div>
+        <br/>
+        
+        <!-- <div class="col-sm-3" style="margin-top: 100px;">
+            Order Summary
+        </div> -->
+    </div>
+    
+</div>

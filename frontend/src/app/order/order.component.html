@@ -1,0 +1,34 @@
+<div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 20px;">
+    <div *ngFor="let p of pizza.data" class="col-6 card">
+        <div class="card-deck-wrapper">
+            <div class="card-deck">
+                 <!-- Card 1 -->
+                <div class="">
+                     <div class="card-body">
+                         <div class="row">
+                             <div class="col-sm-3" >
+                                <h4>{{p.name}}</h4>
+                                <div id="squr" style="background-color:rgb(15, 240, 15);"></div>
+                                     <!-- <p>{{p.type}}</p> -->
+                                     <img src="https://img.icons8.com/color/48/000000/vegetarian-food-symbol.png" *ngIf="p.type=='veg'"/>
+                                     <img src="https://img.icons8.com/color/48/000000/non-vegetarian-food-symbol.png" *ngIf="p.type=='nonveg'"/>
+                                     <br/><br/>
+                                    <p>₹ {{p.price}}.00</p>
+                                </div>
+                                <div class="col-sm-6 card-content">
+                                    <p>{{p.description}}</p>
+                                    <b>Ingredients</b><p>{{p.ingredients}}</p>
+                                    <b>Topping</b><p>{{p.topping}}</p>
+                                 </div>
+                                 <div class="col-sm-3">
+                                     <div><img class="card-img" src={{p.image}}></div>
+                                         <br/>
+                                         <button class="btn btn-primary text-white" (click)="addToCart(p)">Add to cart</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+         </div>
+     </div>
+  </div>

@@ -1,0 +1,30 @@
+<div style="margin-left: 60px; margin-top: 60px;">
+    <h3 style="font-weight: bold; margin-left: 50px;">YOUR SHOPPING BAG</h3><br><br>
+    <h6 *ngIf="cart.length > 0" style="font-weight: bolder;">ITEM DETAILS</h6>
+    <h6 *ngIf="cart.length === 0" style="font-weight: bolder;">Cart is Empty</h6>
+
+        <div *ngFor="let c of cart, let i = index" class="col-sm-7">
+            <hr/>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="{{c.image}}" style="height: 80px; width: 100px;">
+                </div>
+                <div class="col-sm-3" style="margin: 5px;width: 20px;">
+                    <p style="font-weight: bold;">{{c.name}}</p>
+                    <p>{{c.topping}}</p>
+                    <a href="#" (click)="delete(c)">Remove Item</a>
+                </div>
+                <div class="col-sm-2" style="margin: 5px;width: 20px;">
+                    <label>Qty: <input type="text" [(ngModel)]="qty[i]" style="width: 40px;"/></label>
+                </div>
+            <div class="col-sm-2" style="margin: 5px;width: 20px;">
+                    <button (click)="update(c,i)">Update</button>
+                </div>
+                <div class="col-sm-2" style="margin: 5px;width: 40px;">
+                    <p>Rs.{{price[i]}}</p>
+                    <!-- <p *ngIf="cost!=0">Rs.{{price}}</p> -->
+                </div>
+            </div>
+        </div>
+    
+</div>
